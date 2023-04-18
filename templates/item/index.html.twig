@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ItemController!{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h1>Список товаров</h1>
+
+    {% for item in items %}
+        <div class="row py-1">
+            <div class="col">{{ item.name }}</div>
+            <div class="col">{{ item.price }}</div>
+            <div class="col"><a href="{{ url('show_item', {id:item.id}) }}" class="btn btn-sm btn-primary">Подробнее</a></div>
+        </div>
+    {% endfor %}
+
+    <div class="row">
+        <div class="col">
+            <a href="{{ url("create_item") }}" class="btn btn-sm btn-info">Добавить товар</a>
+            <a href="{{ url("app_checkout") }}" class="btn btn-sm btn-success">Рассчет цены</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

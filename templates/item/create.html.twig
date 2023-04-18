@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ItemController!{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h1>Создание товара</h1>
+    
+    <div class="row">
+        <div class="col">
+            <a href="{{ url("app_item") }}" class="btn btn-sm btn-info">К списку</a>
+        </div>
+    </div>
+
+    {% if message %}
+        <div class="alert alert-success">{{ message|replace({"%name%": item.name}) }}</div>
+    {% else %}
+        {{ form(form) }}
+    {% endif %}
+</div>
+{% endblock %}

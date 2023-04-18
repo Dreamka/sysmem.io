@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ItemController!{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>{{ item.name }}</h1>
+    <h2>Цена {{ item.price }}</h2>
+
+    <div class="row">
+        <div class="col">
+            <a href="{{ url("app_item") }}" class="btn btn-sm btn-info">К списку</a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

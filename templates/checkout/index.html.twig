@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CheckoutController!{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>Рассчет цены с налогом</h1>
+
+    <div class="row">
+        <div class="col">
+            <a href="{{ url("app_item") }}" class="btn btn-sm btn-info">К товарам</a>
+        </div>
+    </div>
+
+    {{ form(form) }}
+
+    {% if full_price is defined and user_country is defined %}
+        <div class="row">
+            <div class="col">
+                <strong>
+                    Пользователь проживает в {{ user_country.label }}
+                    и для него цена на {{ item.name }} составит {{ full_price }}
+                </strong>
+                <table class="table">
+                    <tr>
+                        <th>Товар</th>
+                        <th>Цена</th>
+                        <th>Налог</th>
+                        <th>Цена с налогом</th>
+                    </tr>
+                    <tr>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.price }}</td>
+                        <td>{{ user_country.tax }}%</td>
+                        <td>{{ full_price }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    {% endif %}
+
+</div>
+{% endblock %}
