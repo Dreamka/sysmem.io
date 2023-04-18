@@ -57,7 +57,7 @@ class Item
         $metadata->addPropertyConstraint("name", new NotBlank());
         $metadata->addPropertyConstraint("price", new NotBlank());
         $metadata->addPropertyConstraint("price", new Regex(
-            "/[0-9]+\.[0-9]+/",
+            "/[0-9]?\.?[0-9]?/",
             "Цена должна быть числом"
         ));
     }
